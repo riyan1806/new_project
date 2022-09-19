@@ -3,6 +3,8 @@ import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
+import HeroImage from '../components/Images/undraw_connecting_teams_re_hno7.svg'
+
 const navigation = [
   { name: 'Product', href: '/' },
   { name: 'Features', href: '/' },
@@ -12,10 +14,10 @@ const navigation = [
 
 export default function LandingPage() {
   return (
-    <div className="relative overflow-hidden bg-white">
-      <div className="mx-auto max-w-9xl ">
-        <div className="relative z-10 bg-white pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32">
-          <svg
+    <div className="relative overflow-hidden bg-blend-hard-light max-h-screen">
+      <div className="mx-auto max-w-9xl max-h-screen">
+        <div className="relative z-10 bg-white pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32 lg:max-h-screen">
+          {/* <svg
             className="absolute inset-y-0 right-0 hidden h-full w-48 translate-x-1/2 transform text-white lg:block"
             fill="currentColor"
             viewBox="0 0 100 100"
@@ -23,11 +25,11 @@ export default function LandingPage() {
             aria-hidden="true"
           >
             <polygon points="50,0 100,0 50,100 0,100" />
-          </svg>
+          </svg> */}
 
           <Popover>
             <div className="relative px-4 pt-6 sm:px-6 lg:px-8">
-              <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
+              <nav className="relative flex items-center justify-between sm:h-4 lg:justify-start" aria-label="Global">
                 <div className="flex flex-shrink-0 flex-grow items-center lg:flex-grow-0">
                   <div className="flex w-full items-center justify-between md:w-auto">
                     <a href="/">
@@ -142,10 +144,10 @@ export default function LandingPage() {
           </main>
         </div>
       </div>
-      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+      <div className="lg:absolute lg:inset-y-0 lg:-right-5 lg:top-4 lg:w-1/1 ">
         <img
           className="h-56 w-full object-cover sm:h-full md:h-full lg:h-full lg:w-full"
-          src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
+          src={HeroImage}
           alt=""
         />
       </div>
