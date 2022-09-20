@@ -103,12 +103,12 @@ export default function LandingPage() {
                       </a>
                     ))}
                   </div>
-                  <a
-                    href="/"
+                  <Link
+                    to="/Login"
                     className="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-indigo-600 hover:bg-gray-100"
                   >
                     Log in
-                  </a>
+                  </Link>
                 </div>
               </Popover.Panel>
             </Transition>
@@ -145,9 +145,9 @@ export default function LandingPage() {
           </main>
         </div>
       </div>
-      <div className="lg:absolute lg:inset-y-0 lg:-right-5 lg:top-4 lg:w-1/1 ">
+      <div className="lg:absolute lg:inset-y-0 lg:-right-5 lg:top-4 lg:w-1/1 mt-6">
         <img
-          className="h-56 w-full object-cover sm:h-full md:h-full lg:h-full lg:w-full"
+          className=" w-full object-cover sm:h-full  md:h-full lg:h-full lg:w-full "
           src={HeroImage}
           alt=""
         />
