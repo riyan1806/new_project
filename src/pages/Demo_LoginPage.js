@@ -1,20 +1,18 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import {Link} from 'react-router-dom'
-
+import {LockClosedIcon} from '@heroicons/react/24/outline'
 import HeroImage from '../components/Images/undraw_connecting_teams_re_hno7.svg'
 import Logo from '../components/Images/icons8-crane-bird-100.png'
-
 const navigation = [
   { name: 'About Us', href: '/' },
-  // { name: 'Features', href: '/' },
-  // { name: 'Marketplace', href: '/' },
-  // { name: 'Company', href: '/' },
+//   { name: 'Features', href: '/' },
+//   { name: 'Marketplace', href: '/' },
+//   { name: 'Company', href: '/' },
 ]
 
-export default function LandingPage() {
+export default function Login_2() {
   return (
     <div className="relative overflow-hidden bg-white max-h-screen">
       <div className="mx-auto max-w-9xl max-h-screen">
@@ -56,8 +54,8 @@ export default function LandingPage() {
                       {item.name}
                     </a>
                   ))}
-                  <Link to ='/Login' className="font-medium text-indigo-600 hover:text-indigo-500">
-                    Log in
+                  <Link to ='/' className="font-medium text-indigo-600 hover:text-indigo-500">
+                    Home
                   </Link>
                 </div>
               </nav>
@@ -114,33 +112,90 @@ export default function LandingPage() {
             </Transition>
           </Popover>
 
-          <main className="mx-auto mt-10 max-w-9xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-            <div className="sm:text-center lg:text-left">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-                <span className="block xl:inline">Reach out to a faculty?</span>{' '}
-                <span className="block text-indigo-600 xl:inline">Use Xeno</span>
-              </h1>
-              
-              <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-              Xeno helps in connecting the college in such a way that students and faculty members communication experience is enhanced 
+          <main className="mx-auto mt-10 max-w-9xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 ">
+            <div className="sm:text-center lg:text-left ">
+            <div className="flex min-h-full  items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-md space-y-8">
+            <div>
+              <img
+                className="mx-auto h-12 w-auto"
+                src={Logo}
+                alt="Your Company"
+              />
+              <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+                Sign in to your account
+              </h2>
+              <p className="mt-2 text-center text-sm text-gray-600">
+               
               </p>
-              <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                <div className="rounded-md shadow">
-                  <Link to = '/Login'
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
-                  >
-                    Log in
-                  </Link>
+            </div>
+            <form className="mt-8 space-y-6" action="#" method="POST">
+              <input type="hidden" name="remember" defaultValue="true" />
+              <div className="-space-y-px rounded-md shadow-sm">
+                <div>
+                  <label htmlFor="email-address" className="sr-only">
+                    Email address
+                  </label>
+                  <input
+                    id="email-address"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    placeholder="Email address"
+                  />
                 </div>
-                <div className="mt-3 sm:mt-0 sm:ml-3">
-                  {/* <a
-                    href="/"
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg"
-                  >
-                    Live demo
-                  </a> */}
+                <div>
+                  <label htmlFor="password" className="sr-only">
+                    Password
+                  </label>
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    placeholder="Password"
+                  />
                 </div>
               </div>
+  
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <input
+                    id="remember-me"
+                    name="remember-me"
+                    type="checkbox"
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                  />
+                  <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                    Remember me
+                  </label>
+                </div>
+  
+                <div className="text-sm">
+                  <a href="/" className="font-medium text-indigo-600 hover:text-indigo-500">
+                    Forgot your password?
+                  </a>
+                </div>
+              </div>
+  
+              <div>
+                <button
+                  type="submit"
+                  className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg--700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                >
+                  <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                    <LockClosedIcon className="h-5 w-5 bg-indigo-600 group-hover:text-indigo-400" aria-hidden="true" />
+                  </span>
+                  Sign in
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
             </div>
           </main>
         </div>
