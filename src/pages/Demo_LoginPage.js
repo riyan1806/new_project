@@ -3,8 +3,11 @@ import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import {Link} from 'react-router-dom'
 import {LockClosedIcon} from '@heroicons/react/24/outline'
-import HeroImage from '../components/Images/undraw_connecting_teams_re_hno7.svg'
+
+import HeroImage from '../components/Images/login_hero_image.svg'
 import Logo from '../components/Images/icons8-crane-bird-100.png'
+import Microsoft_Logo from '../components/Images/Microsoft_logo.svg.png'
+
 const navigation = [
   { name: 'About Us', href: '/' },
 //   { name: 'Features', href: '/' },
@@ -14,7 +17,7 @@ const navigation = [
 
 export default function Login_2() {
   return (
-    <div className="relative overflow-hidden bg-white max-h-screen">
+    <div className="relative overflow-x-hidden bg-white max-h-screen">
       <div className="mx-auto max-w-9xl max-h-screen">
         <div className="relative z-10 bg-white pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32 lg:max-h-screen">
           {/* <svg
@@ -112,9 +115,9 @@ export default function Login_2() {
             </Transition>
           </Popover>
 
-          <main className="mx-auto mt-10 max-w-9xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 ">
+          <main className="mx-auto max-w-6xl px-2 sm:mt-8 sm:px-6 md:mt-12 lg:mt-4 lg:px-8  ">
             <div className="sm:text-center lg:text-left ">
-            <div className="flex min-h-full  items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+            <div className="flex min-h-full  items-center justify-center py-12 px-4 sm:px-6 lg:px-8 ">
           <div className="w-full max-w-md space-y-8">
             <div>
               <img
@@ -192,6 +195,20 @@ export default function Login_2() {
                   </span>
                   Sign in
                 </button>
+                <div className="w-full max-w-md space-y-8">
+                <label htmlFor="Or" className=" mt-1  block text-sm text-center font-semibold text-gray-900">
+                              OR
+                  </label>
+                </div>
+                <button
+                  type="submit"
+                  className="group relative flex w-full top-2 justify-center rounded-md border border-transparent bg-gray-200 py-2 px-4 text-sm font-medium text-black hover:bg--700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                >
+                  <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                    <img className="h-5 w-5" src={Microsoft_Logo} alt='' naria-hidden="true" />
+                  </span>
+                  Login with Microsoft
+                </button>
               </div>
             </form>
           </div>
@@ -200,13 +217,14 @@ export default function Login_2() {
           </main>
         </div>
       </div>
-      <div className="lg:absolute lg:inset-y-0 lg:-right-5 lg:top-4 lg:w-1/1 ">
+      <div className="lg:absolute lg:inset-y-0 lg:-right-5 lg:top-4 lg:w-1/1 sm:object-none ">
         <img
-          className=" w-full object-cover sm:h-full md:h-full lg:h-full lg:w-full"
+          className="w-full object-cover sm:h-full md:h-auto lg:h-5/6 lg:w-3/4 lg:ml-40 lg:-mt-8 "
           src={HeroImage}
           alt=""
         />
       </div>
+      
     </div>
   )
 }

@@ -16,7 +16,7 @@ const navigation = [
 
 export default function LandingPage() {
   return (
-    <div className="relative overflow-hidden bg-white max-h-screen">
+    <div className="relative overflow-x-hidden bg-white max-h-screen">
       <div className="mx-auto max-w-9xl max-h-screen">
         <div className="relative z-10 bg-white pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32 lg:max-h-screen">
           {/* <svg
