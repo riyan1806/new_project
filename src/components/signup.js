@@ -1,6 +1,30 @@
 import { LockClosedIcon } from '@heroicons/react/20/solid'
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function Signup() {
+  
+  const auth = getAuth();
+
+  const [data, setData] = useState({
+    email: '',
+    password: ''
+  })
+
+  const handleInputs = (event) => {
+    let inputs = { [event.target.name]: event.target.value }
+
+    setData({ ...data, ...inputs })
+  }
+
+  const handleSubmit = () => {
+    createUserWithEmailAndPassword(auth, data.email, data.password)
+    .then((Response) =>{
+      console.log(Response.user)
+    })
+    .catch((err) =>{
+      alert(err.message)
+    });
+  }
     return (
       <>
         {/*
@@ -42,6 +66,7 @@ export default function Signup() {
                     type="email"
                     autoComplete="email"
                     required
+                    onChange={event => handleInputs(event)}
                     className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     placeholder="Email address"
                   />
@@ -56,6 +81,7 @@ export default function Signup() {
                     type="password"
                     autoComplete="current-password"
                     required
+                    onChange={event => handleInputs(event)}
                     className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     placeholder="Password"
                   />
@@ -84,7 +110,7 @@ export default function Signup() {
   
               <div>
                 <button
-                  type="submit"
+                  onClick={handleSubmit}
                   className="group relative flex w-full justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   <span className="absolute inset-y-0 left-0 flex items-center pl-3">

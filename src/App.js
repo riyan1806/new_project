@@ -1,10 +1,9 @@
+import { app } from './firebaseConfig';
 
-// import Signup from './components/signup'
-// import Header from './components/header'
 import { BrowserRouter , Route , Routes} from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import LoginPage from './pages/LoginPage';
 import Login_2 from './pages/Demo_LoginPage';
+import Studentsview from './pages/studentview';
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +18,11 @@ function App() {
                 exact
                 path="/Login"
                 element={<Login_2 />}
+                />
+    <Route
+                exact
+                path="/studentsview"
+                element={<Studentsview/>}
                 />
     </Routes>
     </BrowserRouter>
