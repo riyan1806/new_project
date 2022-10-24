@@ -7,7 +7,6 @@ import {LockClosedIcon} from '@heroicons/react/24/outline'
 import HeroImage from '../components/Images/login_hero_image.svg'
 import Logo from '../components/Images/icons8-crane-bird-100.png'
 import Microsoft_Logo from '../components/Images/Microsoft_logo.svg.png'
-import Studentsview from './studentview'
 
 import { useNavigate } from 'react-router-dom'
 import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider , signInWithPopup} from "firebase/auth";
@@ -52,7 +51,7 @@ export default function Login_2() {
     signInWithEmailAndPassword(auth, data.email, data.password)
     .then((Response) =>{
       console.log(Response.user)
-      navigate("/studentsview")
+      navigate("/Dashboard")
     })
     .catch((err) =>{
        setOpen(true)
