@@ -1,6 +1,8 @@
+import { app2 } from "./firebaseConfig";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import Login_2 from "./pages/Demo_LoginPage";
+import Login from "./pages/Demo_LoginPage";
 import Studentsview from "./pages/studentview";
 import Cmpn from "./pages/CMPN";
 function App() {
@@ -8,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
-        <Route exact path="/Login" element={<Login_2 />} />
+        <Route exact path="/Login" element={<Login />} />
         <Route exact path="/Dashboard" element={<Studentsview />} />
         <Route exact path="/Dashboard/Cmpn" element={<Cmpn />} />
       </Routes>

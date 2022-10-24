@@ -25,7 +25,7 @@ const navigation = [
 
 
 
-export default function Login_2() {
+export default function Login() {
 
   const [open, setOpen] = useState(false)
 
@@ -68,7 +68,7 @@ export default function Login_2() {
     signInWithPopup(auth, googleProvider)
     .then((Response) =>{
       console.log(Response.user)
-      navigate("/studentsview")
+      navigate("/Dashboard")
     })
     .catch((err) =>{
       alert(err.message)
