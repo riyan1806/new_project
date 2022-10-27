@@ -5,7 +5,7 @@ export default function Cmpn(){
     return(
         <>
         <MainscreenNavbar/>
-        <Title name="CMPN BRANCH"/>
+        <Title name="CMPN DEPARTMENT"/>
         <DepartmentTable/>
         </>
         

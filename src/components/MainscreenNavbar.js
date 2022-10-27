@@ -7,7 +7,7 @@ import Logo from '../components/Images/icons8-crane-bird-100.png'
 import  Avatar  from '../components/Images/icons8-boy-64.png'
 
 const navigation = [
-  { name: 'Dashboard', href: '/', current: true },
+  { name: 'Dashboard', to: '/Dashboard', current: true },
   { name: 'Profile', href: '/', current: false },
 //   { name: 'Projects', href: '/', current: false },
 //   { name: 'Calendar', href: '/', current: false },
@@ -17,7 +17,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function MainscreenNavbar() {
+export default function MainscreenNavbar(props) {
   return (
     <Disclosure as="nav" className="bg-white">
       {({ open }) => (
@@ -51,9 +51,9 @@ export default function MainscreenNavbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.to}
                         className={classNames(
                           item.current ? 'bg-white text-indigo-600' : 'text-indigo-400 hover:bg-white hover:text-indigo-600',
                           'px-3 py-2 rounded-md text-sm font-medium'
@@ -61,7 +61,7 @@ export default function MainscreenNavbar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

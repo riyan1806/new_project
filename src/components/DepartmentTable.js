@@ -1,10 +1,44 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+
 import { useDemoData } from '@mui/x-data-grid-generator';
 import { DataGrid } from '@mui/x-data-grid';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+
+import {Table,TableHead, TableCell, TableRow, TableBody, Button, styled,} from "@mui/material";
+
+import { Link } from 'react-router-dom';
+
+const StyledTable = styled(Table)`
+  background: ;
+  width: 90%;
+
+  overflow: auto;
+
+  margin-top: 50px;
+  margin-left: 50px;
+
+  
+`;
+
+const THead = styled(TableRow)`
+  & > th {
+   
+    font-size: 20px;
+    background: #5850EC;
+    color: #ffffff;
+  }
+`;
+
+const TRow = styled(TableRow)`
+  & > td {
+  
+    font-size: 18px;
+  }
+`;
+
+
 
 function CustomFooterStatusComponent(props) {
   return (
@@ -27,7 +61,7 @@ CustomFooterStatusComponent.propTypes = {
 
 export { CustomFooterStatusComponent };
 
-export default function DepartmentTable() {
+export default function DepartmentTable(props) {
   const [status, setStatus] = React.useState('connected');
   const { data } = useDemoData({
     dataSet: 'Employee',
@@ -36,7 +70,8 @@ export default function DepartmentTable() {
   });
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <>
+    {/* <Box sx={{ width: '100%' }}>
       <Box sx={{ height: 350, width: '100%', mb: 1 }}>
         <DataGrid
           {...data}
@@ -58,6 +93,60 @@ export default function DepartmentTable() {
       >
         {status === 'connected' ? 'Disconnect' : 'Connect'}
       </Button>
-    </Box>
+    </Box> */}
+          <StyledTable className="flex flex-1 justify-center ">
+            <TableHead>
+              <THead>
+                <TableCell>Id</TableCell>
+                <TableCell>First Name</TableCell>
+                <TableCell>Last Name</TableCell>
+                <TableCell>Email</TableCell>
+                <TableCell>Department</TableCell>
+                <TableCell>Status</TableCell>
+              </THead>
+            </TableHead>
+            <TableBody>
+                <TRow >
+                  <TableCell>1</TableCell>
+                  <TableCell>Amit</TableCell>
+                  <TableCell>Nerurkar</TableCell>
+                  <TableCell>amit.nerurkar@vit.edu.in</TableCell>
+                  <TableCell>CMPN</TableCell>
+                  <TableCell>
+                    <Box sx={{ p: 1, display: 'flex' }}>
+                      <FiberManualRecordIcon
+                        fontSize="small"
+                        sx={{
+                          mr: 1,
+                          color: props.status === 'connected' ? '#4caf50' : '#d9182e',
+                        }}
+                      />
+                      Absent {props.status}
+                    </Box>
+                  </TableCell>                
+                </TRow>
+                <TRow >
+                  <TableCell>2</TableCell>
+                  <TableCell>Sachin</TableCell>
+                  <TableCell>Bojewar</TableCell>
+                  <TableCell>sachin.bojewar@vit.edu.in</TableCell>
+                  <TableCell>CMPN</TableCell>
+                  <TableCell>
+                    <Box sx={{ p: 1, display: 'flex' }}>
+                      <FiberManualRecordIcon
+                        fontSize="small"
+                        sx={{
+                          mr: 1,
+                          color: '#4caf50' ,
+                        }}
+                      />
+                      Present {props.status}
+                    </Box>
+                  </TableCell>                
+                </TRow>
+             
+            </TableBody>
+          </StyledTable>
+    </>
   );
 }
