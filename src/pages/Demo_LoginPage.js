@@ -7,6 +7,7 @@ import {LockClosedIcon} from '@heroicons/react/24/outline'
 import HeroImage from '../components/Images/login_hero_image.svg'
 import Logo from '../components/Images/icons8-crane-bird-100.png'
 import Microsoft_Logo from '../components/Images/Microsoft_logo.svg.png'
+import Google_Logo from '../components/Images/Google__G__Logo.svg'
 
 import { useNavigate } from 'react-router-dom'
 import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider , signInWithPopup} from "firebase/auth";
@@ -334,9 +335,9 @@ export default function Login() {
                   className="group relative flex w-full top-2 justify-center rounded-md border border-transparent bg-gray-200 py-2 px-4 text-sm font-medium text-black hover:bg--700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                   >
                   <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                    <img className="h-5 w-5" src={Microsoft_Logo} alt='' naria-hidden="true" />
+                    <img className="h-5 w-5" src={Google_Logo} alt='' naria-hidden="true" />
                   </span>
-                  Login with Microsoft
+                  Login with Google
                 </button>
               </div>
         
