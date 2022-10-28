@@ -2,11 +2,10 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 
-import { useDemoData } from '@mui/x-data-grid-generator';
-import { DataGrid } from '@mui/x-data-grid';
+// import { useDemoData } from '@mui/x-data-grid-generator';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
-import {Table,TableHead, TableCell, TableRow, TableBody, Button, styled,} from "@mui/material";
+import {Table,TableHead, TableCell, TableRow, TableBody, styled,} from "@mui/material";
 
 import { Link } from 'react-router-dom';
 
@@ -38,6 +37,13 @@ const TRow = styled(TableRow)`
   }
 `;
 
+const CLink = styled(Link)`
+   &  {
+    color: #64137d;
+    
+    margin-left: 21px;
+  }
+  `;
 
 
 function CustomFooterStatusComponent(props) {
@@ -62,12 +68,12 @@ CustomFooterStatusComponent.propTypes = {
 export { CustomFooterStatusComponent };
 
 export default function DepartmentTable(props) {
-  const [status, setStatus] = React.useState('connected');
-  const { data } = useDemoData({
-    dataSet: 'Employee',
-    rowLength: 4,
-    maxColumns: 6,
-  });
+  // const [status, setStatus] = React.useState('connected');
+  // const { data } = useDemoData({
+  //   dataSet: 'Employee',
+  //   rowLength: 4,
+  //   maxColumns: 6,
+  // });
 
   return (
     <>
@@ -103,6 +109,8 @@ export default function DepartmentTable(props) {
                 <TableCell>Email</TableCell>
                 <TableCell>Department</TableCell>
                 <TableCell>Status</TableCell>
+                <TableCell>Time-Table</TableCell>
+
               </THead>
             </TableHead>
             <TableBody>
@@ -123,6 +131,11 @@ export default function DepartmentTable(props) {
                       />
                       Absent {props.status}
                     </Box>
+                  </TableCell>
+                  <TableCell>
+                    <CLink to="/testing1">
+                      Link
+                    </CLink>                    
                   </TableCell>                
                 </TRow>
                 <TRow >
@@ -142,7 +155,12 @@ export default function DepartmentTable(props) {
                       />
                       Present {props.status}
                     </Box>
-                  </TableCell>                
+                  </TableCell> 
+                  <TableCell>
+                    <CLink to="/testing1">
+                      Link
+                    </CLink>                    
+                  </TableCell>                     
                 </TRow>
              
             </TableBody>

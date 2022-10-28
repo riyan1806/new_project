@@ -38,7 +38,7 @@ export default function Dashboard(){
           <Container sx={{ mt: 2, mb: 2 }}>
             <Grid container spacing={3}>
          
-              <Grid item md={4} lg={4}>
+              <Grid item md={4} lg={4} sm={6} xs={6}>
                 <Paper
                   sx={{ 
                       cursor: "pointer",
@@ -65,7 +65,7 @@ export default function Dashboard(){
                 </Paper>
               </Grid>
 
-              <Grid item md={4} lg={4}>
+              <Grid item md={4} lg={4} sm={6} xs={6}>
                 <Paper
                   sx={{
                       p: 2,
@@ -92,7 +92,7 @@ export default function Dashboard(){
                 </Paper>
               </Grid>
 
-              <Grid item md={4} lg={4}>
+              <Grid item md={4} lg={4} sm={6} xs={6}>
                 <Paper
                   sx={{
                       p: 2,
@@ -119,7 +119,7 @@ export default function Dashboard(){
                 </Paper>
               </Grid>
 
-              <Grid item md={4} lg={4}>
+              <Grid item md={4} lg={4} sm={6} xs={6}>
                 <Paper
                   sx={{
                      
@@ -146,7 +146,7 @@ export default function Dashboard(){
                   {/* <SchoolDetails/> */}
                 </Paper>
               </Grid>
-              <Grid item md={4} lg={4}>
+              <Grid item md={4} lg={4} sm={6} xs={6}>
                 <Paper
                   sx={{
                     
@@ -158,7 +158,7 @@ export default function Dashboard(){
                       height: 200,
                     backgroundImage: `url(${BIOM})`,
                     backgroundSize: "400px ",
-                    backgroundPosition: "bottom -15px center",
+                    backgroundPosition: "bottom -20px center",
                 }}
                 onClick={() => navigate("/SchoolAdmin/2ndStandard")} // navigate("/StateAdmin/Dashboard/verify")
                 >
