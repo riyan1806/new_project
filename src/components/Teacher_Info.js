@@ -50,7 +50,7 @@ export default function TeacherInfo(){
                 <div className="sm:ml-4 sm:block  md:ml-10 md:block md:pr-4 mr-12">
                  
                   {info.map((item) => (
-                    <Link key={item.name}  className=" sm:font-medium font-medium text-xs sm:text-base flex  sm:block text-gray-500 hover:text-gray-900">
+                    <Link key={item.name}  className=" sm:font-medium font-medium text-sm sm:text-base flex sm:block text-gray-500 hover:text-gray-900">
                       {item.name}
                     </Link>
                   ))}
