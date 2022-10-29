@@ -133,7 +133,7 @@ export default function DepartmentTable(props) {
                     </Box>
                   </TableCell>
                   <TableCell>
-                    <CLink to="/testing1">
+                    <CLink to="/Teacher">
                       Link
                     </CLink>                    
                   </TableCell>                

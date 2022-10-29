@@ -146,7 +146,7 @@ export default function Dashboard(){
                   {/* <SchoolDetails/> */}
                 </Paper>
               </Grid>
-              <Grid item md={4} lg={4} sm={6} xs={6}>
+              <Grid item md={4} lg={4} sm={6} xs={12}>
                 <Paper
                   sx={{
                     
