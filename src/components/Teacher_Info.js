@@ -45,29 +45,29 @@ export default function TeacherInfo(){
                         src={Avatar}
                       />
                     </a>
-                    <div className="-mr-2 flex items-center md:hidden">
-                      <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                        <span className="sr-only">Open main menu</span>
-                        <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-                      </Popover.Button>
-                    </div>
                   </div>
                 </div>
-                <div className="hidden md:ml-10 md:block md:space-x-8 md:pr-4">
+                <div className="sm:ml-4 sm:block  md:ml-10 md:block md:pr-4 mr-12">
                  
                   {info.map((item) => (
-                    <Link key={item.name}  className="font-medium text-gray-500 hover:text-gray-900">
+                    <Link key={item.name}  className=" sm:font-medium font-medium text-xs sm:text-base flex  sm:block text-gray-500 hover:text-gray-900">
                       {item.name}
                     </Link>
                   ))}
                 
                 </div>
+                        <div className="-mr-2 flex items-center md:hidden">
+                          <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                            <span className="sr-only">Open main menu</span>
+                            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                          </Popover.Button>
+                        </div>
                 <Box className="hidden md:flex" sx={{ p: 1  }}>
                       <FiberManualRecordIcon
                         fontSize="medium"
                         sx={{
-                          mr: 1,
-                          color: '#4caf50' ,
+                            mr: 1,
+                            color: '#4caf50' ,
                         }}
                       /><Typography className="text-gra">
 

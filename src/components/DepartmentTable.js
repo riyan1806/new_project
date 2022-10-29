@@ -10,20 +10,19 @@ import {Table,TableHead, TableCell, TableRow, TableBody, styled,} from "@mui/mat
 import { Link } from 'react-router-dom';
 
 const StyledTable = styled(Table)`
-  background: ;
+
   width: 90%;
-
+  display: block;
   overflow: auto;
-
   margin-top: 50px;
-  margin-left: 50px;
-
+  margin-left: 20px;
+  margin-right: 20px;
   
 `;
 
 const THead = styled(TableRow)`
   & > th {
-   
+
     font-size: 20px;
     background: #5850EC;
     color: #ffffff;
