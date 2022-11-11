@@ -84,11 +84,11 @@ const navigation = [
                  
                   {faculty.map((faculty) => (
                     <>
-                    <Link key={faculty.first_name}  className=" ml-2 sm:font-medium font-medium text-sm sm:text-base flex sm:block text-gray-500 hover:text-gray-900">
+                    <Link key={faculty.first_name}  className=" ml-1 sm:font-medium font-medium text-sm sm:text-base flex sm:block text-gray-500 hover:text-gray-900">
                       Name: {faculty.first_name} {faculty.last_name}
                     
                     </Link>
-                    <Link key={faculty.first_name}  className=" ml-2 sm:font-medium font-medium text-xs sm:text-base flex sm:block text-gray-500 hover:text-gray-900">
+                    <Link key={faculty.first_name}  className=" ml-1 sm:font-medium font-medium text-xs sm:text-base flex sm:block text-gray-500 hover:text-gray-900">
                     Email: {faculty.email}
                   
                   </Link>
