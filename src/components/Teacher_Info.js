@@ -96,7 +96,7 @@ const navigation = [
                   ))}
                 
                 </div>
-                <Box className="md:flex -mr-4 -ml-9" sx={{ p: 1  }}>
+                <Box className="md:flex -mr-4 -ml-5" sx={{ p: 1  }}>
                       <FiberManualRecordIcon
                         fontSize="medium"
                         sx={{
