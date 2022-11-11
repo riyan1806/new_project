@@ -10,11 +10,16 @@ import Microsoft_Logo from '../components/Images/Microsoft_logo.svg.png'
 import Google_Logo from '../components/Images/Google__G__Logo.svg'
 
 import { useNavigate } from 'react-router-dom'
-import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider , signInWithPopup} from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider , signInWithPopup, onAuthStateChanged , setPersistence , inMemoryPersistence, indexedDBLocalPersistence} from "firebase/auth";
+import withRouter from '../withRouter';
+import React, { useCallback, useContext } from "react";
+
+
 import { useState } from 'react'
 
 import { Dialog } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+
 
 const navigation = [
   { name: 'About Us', href: '/' },
@@ -26,11 +31,12 @@ const navigation = [
 
 
 
-export default function Login() {
+const Login = () => {
 
   const [open, setOpen] = useState(false)
 
   const cancelButtonRef = useRef(null)
+  const [error1, setError] = useState("");
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
@@ -49,16 +55,23 @@ export default function Login() {
   }
 
   const handleSubmit = () => {
+    
+    setError("");
+    const auth = getAuth();
+    setPersistence(auth, indexedDBLocalPersistence)
     signInWithEmailAndPassword(auth, data.email, data.password)
-    .then((Response) =>{
-      console.log(Response.user)
+    .then((userCredential) =>{
+
       navigate("/Dashboard")
     })
+    
     .catch((err) =>{
        setOpen(true)
+       setError(err.message);
       // error.classList.remove("hidden")
       // alert(err.message)
     });
+ 
   }
 
   const closeerror =() => {
@@ -66,17 +79,32 @@ export default function Login() {
   }
 
   const handleGoogleSubmit = () => {
+    setError("");
     signInWithPopup(auth, googleProvider)
-    .then((Response) =>{
-      console.log(Response.user)
+    .then((userCredential) =>{
+      const user = userCredential.user;
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        }
+      });
+      console.log(user)
+      console.log(user.photoURL)
       navigate("/Dashboard")
     })
     .catch((err) =>{
-      // setOpen(true)
-      alert(err.message)
+      setOpen(true)
+      setError(err.message);
     });
    
   }
+
   return (
     <>
      <Transition.Root show={open} as={Fragment}>
@@ -116,7 +144,7 @@ export default function Login() {
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
-                          Entered Email or Password is Incorrect
+                          {error1}
                         </p>
                       </div>
                     </div>
@@ -359,4 +387,6 @@ export default function Login() {
     </div>
   </>
   )
-}
+};
+
+export default withRouter(Login);

@@ -3,6 +3,8 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon,  XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 
+import { useNavigate } from "react-router";
+import { getAuth, signOut , } from "firebase/auth";
 import Logo from '../components/Images/icons8-crane-bird-100.png'
 import  Avatar  from '../components/Images/icons8-boy-64.png'
 
@@ -18,6 +20,22 @@ function classNames(...classes) {
 }
 
 export default function MainscreenNavbar(props) {
+  
+  const auth = getAuth();
+  // const user = auth.currentUser;
+  // const Photo = user.photoURL
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() =>
+      {navigate("/");})
+    .catch ((error) => {
+      console.log(error.message);
+    })
+  };
+
+  
+
   return (
     <Disclosure as="nav" className="bg-white">
       {({ open }) => (
@@ -122,6 +140,7 @@ export default function MainscreenNavbar(props) {
                           <Link
                             to="/"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            onClick={handleLogout}
                           >
                             Sign out
                           </Link>

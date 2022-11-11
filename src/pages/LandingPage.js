@@ -4,6 +4,7 @@ import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import {Link} from 'react-router-dom'
 
+
 import HeroImage from '../components/Images/undraw_connecting_teams_re_hno7.svg'
 import Logo from '../components/Images/icons8-crane-bird-100.png'
 
@@ -13,6 +14,7 @@ const navigation = [
   // { name: 'Marketplace', href: '/' },
   // { name: 'Company', href: '/' },
 ]
+
 
 export default function LandingPage() {
   return (

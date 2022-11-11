@@ -6,6 +6,8 @@ import Box from '@mui/material/Box';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 import {Table,TableHead, TableCell, TableRow, TableBody, styled,} from "@mui/material";
+import { collection, doc, setDoc ,where,query,onSnapshot, getDoc} from "firebase/firestore"; 
+import { db } from "../firebaseConfig";
 
 import { Link } from 'react-router-dom';
 
@@ -74,6 +76,22 @@ export default function DepartmentTable(props) {
   //   maxColumns: 6,
   // });
 
+
+  // React.useEffect(() => {
+  //   const q = query(collection(db, 'faculty/1'));
+ 
+  //   const unsub = onSnapshot(q, (querySnapshot) => {
+  //     let facultyArray = [];
+  //     querySnapshot.forEach((doc) => {
+  //       facultyArray.push({ ...doc.data(), id: doc.id });
+  //     });
+  //     setFaculty(facultyArray);
+  //   });
+  //   return () => {
+  //     unsub();
+    
+  //   };
+  // }, []);
   return (
     <>
     {/* <Box sx={{ width: '100%' }}>
@@ -113,6 +131,7 @@ export default function DepartmentTable(props) {
               </THead>
             </TableHead>
             <TableBody>
+              
                 <TRow >
                   <TableCell>1</TableCell>
                   <TableCell>Amit</TableCell>
@@ -127,7 +146,7 @@ export default function DepartmentTable(props) {
                           mr: 1,
                           color: props.status === 'connected' ? '#4caf50' : '#d9182e',
                         }}
-                      />
+                        />
                       Absent {props.status}
                     </Box>
                   </TableCell>
@@ -137,6 +156,7 @@ export default function DepartmentTable(props) {
                     </CLink>                    
                   </TableCell>                
                 </TRow>
+               
                 <TRow >
                   <TableCell>2</TableCell>
                   <TableCell>Sachin</TableCell>

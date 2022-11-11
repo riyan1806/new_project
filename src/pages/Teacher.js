@@ -5,8 +5,9 @@ import TeacherInfo from "../components/Teacher_Info";
 export default function Teacher(){
     return(
         <>
-        <TeacherInfo/>
-        <TeacherTable/>
+        <TeacherInfo id="1"/>
+        <TeacherTable 
+        id="faculty/1/timetable"/>
         </>
     )
 }
