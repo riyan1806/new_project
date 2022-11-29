@@ -69,7 +69,7 @@ CustomFooterStatusComponent.propTypes = {
 
 export { CustomFooterStatusComponent };
 
-export default function DepartmentTable(props) {
+export default function DepartmentTable_IT(props) {
   // const [status, setStatus] = React.useState('connected');
   // const { data } = useDemoData({
   //   dataSet: 'Employee',
@@ -135,9 +135,9 @@ export default function DepartmentTable(props) {
               
                 <TRow >
                   <TableCell>1</TableCell>
-                  <TableCell>Prakash</TableCell>
-                  <TableCell>Parmar</TableCell>
-                  <TableCell>prakash.parmar@vit.edu.in</TableCell>
+                  <TableCell>Indu</TableCell>
+                  <TableCell>Anoop</TableCell>
+                  <TableCell>indu.anoop@vit.edu.in</TableCell>
                   <TableCell>CMPN</TableCell>
                   <TableCell>
                     <Box sx={{ p: 1, display: 'flex' }}>
@@ -152,17 +152,17 @@ export default function DepartmentTable(props) {
                     </Box>
                   </TableCell>
                   <TableCell>
-                    <CLink to="/Teacher/1">
+                    <CLink to="/Teacher/4">
                       View
                     </CLink>                    
                   </TableCell>                
                 </TRow>
                 <TRow >
                   <TableCell>2</TableCell>
-                  <TableCell>Divya</TableCell>
-                  <TableCell>Surve</TableCell>
-                  <TableCell>divya.surve@vit.edu.in</TableCell>
-                  <TableCell>CMPN</TableCell>
+                  <TableCell>Rohit</TableCell>
+                  <TableCell>Barve</TableCell>
+                  <TableCell>rohit.barve@vit.edu.in</TableCell>
+                  <TableCell>IT</TableCell>
                   <TableCell>
                     <Box sx={{ p: 1, display: 'flex' }}>
                       <FiberManualRecordIcon
@@ -176,17 +176,17 @@ export default function DepartmentTable(props) {
                     </Box>
                   </TableCell> 
                   <TableCell>
-                    <CLink to="/Teacher/2">
+                    <CLink to="/Teacher/5">
                       View
                     </CLink>                    
                   </TableCell>                     
                 </TRow>
                 <TRow >
                   <TableCell>3</TableCell>
-                  <TableCell>Sachin</TableCell>
-                  <TableCell>Bojewar</TableCell>
-                  <TableCell>sachin.bojewar@vit.edu.in</TableCell>
-                  <TableCell>CMPN</TableCell>
+                  <TableCell>Vidya</TableCell>
+                  <TableCell>Chitre</TableCell>
+                  <TableCell>vidya.chitre@vit.edu.in</TableCell>
+                  <TableCell>IT</TableCell>
                   <TableCell>
                     <Box sx={{ p: 1, display: 'flex' }}>
                       <FiberManualRecordIcon
@@ -200,7 +200,7 @@ export default function DepartmentTable(props) {
                     </Box>
                   </TableCell> 
                   <TableCell>
-                    <CLink to="/Teacher/3">
+                    <CLink to="/Teacher/6">
                      View
                     </CLink>                    
                   </TableCell>                     

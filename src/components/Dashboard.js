@@ -77,7 +77,7 @@ export default function Dashboard(){
                       backgroundPosition: "bottom -15px center",
                       backgroundSize: "360px",
                     }}
-                    onClick={() => navigate("/SchoolAdmin/JuniorKG")} // navigate("/StateAdmin/Dashboard/verify")
+                    onClick={() => navigate("/Dashboard/It")} // navigate("/StateAdmin/Dashboard/verify")
                     >
                   <Typography
                     variant="caption"
@@ -104,7 +104,7 @@ export default function Dashboard(){
                       backgroundPosition: "bottom 1px center",
                       backgroundSize: "300px",
                     }}
-                    onClick={() => navigate("/SchoolAdmin/SeniorKG")} // navigate("/StateAdmin/Dashboard/verify")
+                    onClick={() => navigate("/Dashboard/Cmpn")} // navigate("/StateAdmin/Dashboard/verify")
                     >
                   <Typography
                     variant="caption"
@@ -160,7 +160,7 @@ export default function Dashboard(){
                     backgroundSize: "400px ",
                     backgroundPosition: "bottom -20px center",
                 }}
-                onClick={() => navigate("/SchoolAdmin/2ndStandard")} // navigate("/StateAdmin/Dashboard/verify")
+                onClick={() => navigate("/Dashboard/Cmpn")} // navigate("/StateAdmin/Dashboard/verify")
                 >
                   <Typography
                     variant="caption"
