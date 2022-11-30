@@ -116,7 +116,7 @@ const navigation = [
                     
                       <img id='myimg'
                         alt="Your Company"
-                        className="h-8 w-auto sm:h-10 rounded-full"
+                        className="h-10 w-auto sm:h-10 rounded-full"
                        
                       
                         />
