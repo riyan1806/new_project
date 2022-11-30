@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 import {Table,TableHead, TableCell, TableRow, TableBody, styled,} from "@mui/material";
-import { collection, doc, setDoc ,where,query,onSnapshot, getDoc} from "firebase/firestore"; 
+import { collection, doc, setDoc ,where,query,onSnapshot, getDoc , documentId , limit} from "firebase/firestore"; 
 import { db } from "../firebaseConfig";
 
 import { Link } from 'react-router-dom';
@@ -55,16 +55,16 @@ function CustomFooterStatusComponent(props) {
         fontSize="small"
         sx={{
           mr: 1,
-          color: props.status === 'connected' ? '#4caf50' : '#d9182e',
+          color: props.status === true ? '#4caf50' : '#d9182e',
         }}
       />
-      Status {props.status}
+      {props.status== true ? "Present": "Absent"} 
     </Box>
   );
 }
 
 CustomFooterStatusComponent.propTypes = {
-  status: PropTypes.oneOf(['connected', 'disconnected']).isRequired,
+  status: PropTypes.oneOf([true, false]).isRequired,
 };
 
 export { CustomFooterStatusComponent };
@@ -77,7 +77,65 @@ export default function DepartmentTable(props) {
   //   maxColumns: 6,
   // });
 
+  const [faculty, setFaculty] = React.useState([]);
+  const [faculty2, setFaculty2] = React.useState([]);
+  const [faculty3, setFaculty3] = React.useState([]);
 
+    
+    React.useEffect(() => {
+      // const auth = getAuth();
+      const q = query(collection(db,"faculty"));
+      const q1 = query(q, where(documentId(),"==",props.id1),limit(1));
+      
+      const unsub = onSnapshot(q1, (querySnapshot) => {
+        let facultyArray= [];
+        querySnapshot.forEach((doc) => {
+          facultyArray.push({ ...doc.data(), id: doc.id });
+        });
+        setFaculty(facultyArray);
+      });
+      
+      return () => {
+        unsub();
+      };
+    },[]);
+
+    React.useEffect(() => {
+      // const auth = getAuth();
+      const q = query(collection(db,"faculty"));
+      const q2 = query(q, where(documentId(),"==",props.id2),limit(1));
+      
+      const unsub = onSnapshot(q2, (querySnapshot) => {
+        let facultyArray2= [];
+        querySnapshot.forEach((doc) => {
+          facultyArray2.push({ ...doc.data(), id: doc.id });
+        });
+        setFaculty2(facultyArray2);
+      });
+      
+      return () => {
+        unsub();
+      };
+    },[]);
+
+    React.useEffect(() => {
+      // const auth = getAuth();
+      const q = query(collection(db,"faculty"));
+      const q3 = query(q, where(documentId(),"==",props.id3),limit(1));
+      
+      const unsub = onSnapshot(q3, (querySnapshot) => {
+        let facultyArray3 = [];
+        querySnapshot.forEach((doc) => {
+          facultyArray3.push({ ...doc.data(), id: doc.id });
+        });
+        setFaculty3(facultyArray3);
+      });
+      
+      return () => {
+        unsub();
+      };
+    },[]);
+    
   // React.useEffect(() => {
   //   const q = query(collection(db, 'faculty/1'));
  
@@ -140,16 +198,9 @@ export default function DepartmentTable(props) {
                   <TableCell>prakash.parmar@vit.edu.in</TableCell>
                   <TableCell>CMPN</TableCell>
                   <TableCell>
-                    <Box sx={{ p: 1, display: 'flex' }}>
-                      <FiberManualRecordIcon
-                        fontSize="small"
-                        sx={{
-                          mr: 1,
-                          color: props.status === 'connected' ? '#4caf50' : '#d9182e',
-                        }}
-                        />
-                      Absent {props.status}
-                    </Box>
+                  {faculty.map((faculty) => (
+                    <CustomFooterStatusComponent status={faculty.status}/>
+                  ))}
                   </TableCell>
                   <TableCell>
                     <CLink to="/Teacher/1">
@@ -164,16 +215,9 @@ export default function DepartmentTable(props) {
                   <TableCell>divya.surve@vit.edu.in</TableCell>
                   <TableCell>CMPN</TableCell>
                   <TableCell>
-                    <Box sx={{ p: 1, display: 'flex' }}>
-                      <FiberManualRecordIcon
-                        fontSize="small"
-                        sx={{
-                          mr: 1,
-                          color: '#4caf50' ,
-                        }}
-                      />
-                      Present {props.status}
-                    </Box>
+                  {faculty2.map((faculty2) => (
+                    <CustomFooterStatusComponent status={faculty2.status}/>
+                  ))}
                   </TableCell> 
                   <TableCell>
                     <CLink to="/Teacher/2">
@@ -188,16 +232,9 @@ export default function DepartmentTable(props) {
                   <TableCell>sachin.bojewar@vit.edu.in</TableCell>
                   <TableCell>CMPN</TableCell>
                   <TableCell>
-                    <Box sx={{ p: 1, display: 'flex' }}>
-                      <FiberManualRecordIcon
-                        fontSize="small"
-                        sx={{
-                          mr: 1,
-                          color: '#4caf50' ,
-                        }}
-                      />
-                      Present {props.status}
-                    </Box>
+                  {faculty3.map((faculty3) => (
+                    <CustomFooterStatusComponent status={faculty3.status}/>
+                  ))}
                   </TableCell> 
                   <TableCell>
                     <CLink to="/Teacher/3">

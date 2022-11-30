@@ -6,20 +6,48 @@ import {Link} from 'react-router-dom'
 import Box from '@mui/material/Box';
 // import { useDemoData } from '@mui/x-data-grid-generator';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-
-import Logo from '../components/Images/icons8-crane-bird-100.png'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+// import Logo from '../components/Images/icons8-crane-bird-100.png'
 import  Avatar  from '../components/Images/icons8-boy-64.png'
 import { Typography } from '@mui/material';
-import { getAuth } from 'firebase/auth';
+// import { getAuth } from 'firebase/auth';
 import { db } from "../firebaseConfig";
 
-import { collection, doc, setDoc ,where,query,onSnapshot, getDoc ,limit, documentId} from "firebase/firestore"; 
+import { useNavigate } from 'react-router-dom';
+import { collection, where,query,onSnapshot,limit, documentId} from "firebase/firestore"; 
 const navigation = [
     { name: 'Dashboard', href: '/Dashboard' },   
   ]
+
+  function CustomFooterStatusComponent(props) {
+    return (
+      <Box sx={{ p: 1, display: 'flex' }}>
+        <FiberManualRecordIcon
+          fontSize="small"
+          sx={{
+            mr: 1,
+            color: props.status === true ? '#4caf50' : '#d9182e',
+          }}
+        />
+        <div className='hidden md:flex'>
+
+        {props.status===true ? "Present": "Absent"} 
+        </div>
+      </Box>
+    );
+  }
+  
+
+
+  export { CustomFooterStatusComponent };
+
+
+
   export default function TeacherInfo(props){
     
-    
+  
+    const navigate = useNavigate();
+
     const [faculty, setFaculty] = React.useState([]);
     
     React.useEffect(() => {
@@ -42,13 +70,13 @@ const navigation = [
     
   // const user = auth.currentUser;
   // const Photo = user.photoURL;
-  const info = [
+  // const info = [
     
-      { name: faculty.first_name},
-      { name: 'Email: amit.nerurkar@vit.edu.in'}
+  //     { name: faculty.first_name},
+  //     { name: 'Email: amit.nerurkar@vit.edu.in'}
       
   
-    ]
+  //   ]
   
   
   return(
@@ -97,7 +125,10 @@ const navigation = [
                 
                 </div>
                 <Box className="md:flex -mr-4 -ml-5" sx={{ p: 1  }}>
-                      <FiberManualRecordIcon
+                {faculty.map((faculty) => (
+                    <CustomFooterStatusComponent status={faculty.status}/>
+                  ))}
+                      {/* <FiberManualRecordIcon
                         fontSize="medium"
                         sx={{
                           mr: 1,
@@ -106,23 +137,33 @@ const navigation = [
                         /><Typography className="hidden md:flex">
 
                       Present
-                      </Typography>
+                      </Typography> */}
                     </Box>
-                        <div className="-mr-2 flex items-center md:hidden">
-                          <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                            <span className="sr-only">Open main menu</span>
-                            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-                          </Popover.Button>
+                        <div className="-mr-2 flex items-center md:absolute md:right-0">
+                          <div className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                           
+                            <ArrowBackIcon className="h-6 w-6" aria-hidden="true" 
+                              onClick={() => navigate(props.dept)} 
+                             />
+                              
+                             </div>
+                      
                         </div>
               </nav>
               <Typography className="pt-12">
                 Special Message:
-                <Typography className="text-red-600">
-                I will not be Available from 2pm onwards
+                <Typography className="text-red-600">     
+                {faculty.map((faculty) => ( 
+                  <>
+                  {faculty.message}
+                  </>
+                ))}
+            
                 </Typography>  
               </Typography>
+           
             </div>
-
+                    
             <Transition
               as={Fragment}
               enter="duration-150 ease-out"

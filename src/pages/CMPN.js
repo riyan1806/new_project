@@ -6,7 +6,7 @@ export default function Cmpn(){
         <>
         <MainscreenNavbar/>
         <Title name="CMPN DEPARTMENT"/>
-        <DepartmentTable/>
+        <DepartmentTable id1='1' id2='2'id3='3'/>
         </>
         
     )
