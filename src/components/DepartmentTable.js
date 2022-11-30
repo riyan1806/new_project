@@ -211,8 +211,8 @@ export default function DepartmentTable(props) {
                 <TRow >
                   <TableCell>2</TableCell>
                   <TableCell>Divya</TableCell>
-                  <TableCell>Surve</TableCell>
-                  <TableCell>divya.surve@vit.edu.in</TableCell>
+                  <TableCell>Nimbalkar</TableCell>
+                  <TableCell>divya.nimbalkar@vit.edu.in</TableCell>
                   <TableCell>CMPN</TableCell>
                   <TableCell>
                   {faculty2.map((faculty2) => (

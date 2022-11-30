@@ -31,8 +31,8 @@ export default function Title(props) {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? ' text-black' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-lg font-medium'
+                          item.current ? 'text-xl font-bold tracking-tight text-gray-900 sm:text-xl md:text-xl' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          'px-3 py-2 rounded-md text-xl font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
