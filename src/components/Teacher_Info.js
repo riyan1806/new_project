@@ -11,10 +11,11 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import  Avatar  from '../components/Images/icons8-boy-64.png'
 import { Typography } from '@mui/material';
 // import { getAuth } from 'firebase/auth';
-import { db } from "../firebaseConfig";
-
+import {  db } from "../firebaseConfig";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { useNavigate } from 'react-router-dom';
 import { collection, where,query,onSnapshot,limit, documentId} from "firebase/firestore"; 
+import { borderRadius } from '@mui/system';
 const navigation = [
     { name: 'Dashboard', href: '/Dashboard' },   
   ]
@@ -48,6 +49,18 @@ const navigation = [
   
     const navigate = useNavigate();
 
+    const storage = getStorage();
+   
+    getDownloadURL(ref(storage, props.pic))  
+    .then((url) => {
+      const img = document.getElementById('myimg');
+      img.setAttribute('src', url);
+    })
+    .catch((err) => {
+      console.log(err.message)
+    })
+   
+    
     const [faculty, setFaculty] = React.useState([]);
     
     React.useEffect(() => {
@@ -100,11 +113,14 @@ const navigation = [
                   <div className="flex w-full items-center justify-between md:w-auto">
                     <a href="/">
                       <span className="sr-only">Your Company</span>
-                      <img
+                    
+                      <img id='myimg'
                         alt="Your Company"
-                        className="h-8 w-auto sm:h-10"
-                        src={Avatar}
+                        className="h-8 w-auto sm:h-10 rounded-full"
+                       
+                      
                         />
+                     
                     </a>
                   </div>
                 </div>
