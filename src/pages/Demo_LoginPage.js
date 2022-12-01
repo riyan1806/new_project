@@ -99,23 +99,31 @@ const Login = () => {
   const handleSubmit = () => {
     setError("");
     const auth = getAuth();
+   
     setPersistence(auth, indexedDBLocalPersistence)
+
     signInWithEmailAndPassword(auth, data.email, data.password)
-    .then((userCredential) =>{
+
+    .then(() =>{
+    
       console.log(data.email);
+      console.log("hii", user[0]);
+    
+
       
-      console.log("hii", user);
+     
 
-      // if(user.role === "admin")
-      //   navigate ("/Admin");
-
-      // else if(user.role === "faculty")
-      //   navigate ("/Faculty")
-
-      // else if(user.role === "student")
-      //   navigate("/Dashboard")
         
-      
+        if(user[0].role === "admin")
+        navigate ("/Admin");
+        
+        else if(user[0].role === "faculty")
+        navigate ("/Faculty")
+        
+        else if(user[0].role === "student")
+        navigate("/Dashboard")
+  
+        
 
       
     })
@@ -126,7 +134,7 @@ const Login = () => {
       // error.classList.remove("hidden")
       // alert(err.message)
     });
- 
+   
   }
 
   const closeerror =() => {
