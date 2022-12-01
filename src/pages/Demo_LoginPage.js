@@ -20,6 +20,9 @@ import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
+import { db } from "../firebaseConfig";
+import { collection, query, onSnapshot, where , limit, getFirestore} from "firebase/firestore";
+
 
 const navigation = [
   { name: 'About Us', href: '/' },
@@ -27,7 +30,6 @@ const navigation = [
 //   { name: 'Marketplace', href: '/' },
 //   { name: 'Company', href: '/' },
 ]
-
 
 
 
@@ -54,15 +56,68 @@ const Login = () => {
     setData({ ...data, ...inputs })
   }
 
+  const [user, getUser] = React.useState([]);
+
+  React.useEffect(() => {
+    const q = query(collection(db,"users"));
+    const q1 = query(q, where("email", "==", data.email),limit(1));
+    console.log(data.email);
+    const unsub = onSnapshot(q1, (querySnapshot) => {
+      let userArray = [];
+      querySnapshot.forEach((doc) => {
+        userArray.push({ ...doc.data(), id: doc.id });
+      });
+      getUser(userArray);
+      return () => {
+        unsub();
+      };
+
+    });
+  },[])
+
+  // const db = getFirestore();
+
+  // const q = query(collection(db,"users"));
+
+  // const q1 = query(q, where("email", "==", data.email),limit(1));
+
+  //     let user = [];
+  //     let email;
+
+  //     const unsub = onSnapshot(q1, (querySnapshot) => {
+  //      querySnapshot.forEach((doc) => {
+  //        user.push({ ...doc.data(), id: doc.id });
+  //      });
+  //     //  console.log(user);
+  //    });
+
+
+
+
+
+
   const handleSubmit = () => {
-    
     setError("");
     const auth = getAuth();
     setPersistence(auth, indexedDBLocalPersistence)
     signInWithEmailAndPassword(auth, data.email, data.password)
     .then((userCredential) =>{
+      console.log(data.email);
+      
+      console.log("hii", user);
 
-      navigate("/Dashboard")
+      // if(user.role === "admin")
+      //   navigate ("/Admin");
+
+      // else if(user.role === "faculty")
+      //   navigate ("/Faculty")
+
+      // else if(user.role === "student")
+      //   navigate("/Dashboard")
+        
+      
+
+      
     })
     
     .catch((err) =>{
