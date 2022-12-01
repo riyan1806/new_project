@@ -10,6 +10,7 @@ import Teacher3 from "./pages/Teacher3";
 import Teacher4 from "./pages/Teacher4";
 import Teacher5 from "./pages/Teacher5";
 import Teacher6 from "./pages/Teacher6";
+import Faculty from "./pages/Faculty";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 
 
@@ -36,6 +37,8 @@ function App() {
           <Route exact path="/Teacher/4" element={<Teacher4 />} />
           <Route exact path="/Teacher/5" element={<Teacher5 />} />
           <Route exact path="/Teacher/6" element={<Teacher6 />} />
+          <Route exact path="/Faculty" element={<Faculty />} />
+
         </Route>
 
 
