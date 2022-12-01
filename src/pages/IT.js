@@ -6,7 +6,7 @@ export default function It(){
         <>
         <MainscreenNavbar/>
         <Title name="IT DEPARTMENT"/>
-        <DepartmentTable_IT/>
+        <DepartmentTable_IT  id1='4' id2='41'id3='42'/>
         </>
         
     )

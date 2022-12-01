@@ -10,7 +10,7 @@ import  Avatar  from '../components/Images/icons8-boy-64.png'
 
 const navigation = [
   { name: 'Dashboard', to: '/Dashboard', current: true },
-  { name: 'Profile', href: '/', current: false },
+  // { name: 'Profile', href: '/', current: false },
 //   { name: 'Projects', href: '/', current: false },
 //   { name: 'Calendar', href: '/', current: false },
 ]
@@ -115,7 +115,7 @@ export default function MainscreenNavbar(props) {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
+                      {/* <Menu.Item>
                         {({ active }) => (
                           <Link
                             to="/"
@@ -124,7 +124,7 @@ export default function MainscreenNavbar(props) {
                             Your Profile
                           </Link>
                         )}
-                      </Menu.Item>
+                      </Menu.Item> */}
                       {/* <Menu.Item>
                         {({ active }) => (
                           <a
@@ -158,8 +158,8 @@ export default function MainscreenNavbar(props) {
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
-                  as="a"
-                  href={item.href}
+                  as={Link}
+                  to={item.to}
                   className={classNames(
                     item.current ? 'bg-gray-900 text-white' : 'text-black hover:bg-gray-700 hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium'

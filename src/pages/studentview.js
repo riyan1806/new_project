@@ -1,5 +1,5 @@
 import Dashboard from "../components/Dashboard";
-import Title from "../components/DashboardTitle";
+import Title from "../components/DashboardNavbar";
 import MainscreenNavbar from "../components/MainscreenNavbar";
 
 

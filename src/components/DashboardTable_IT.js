@@ -138,7 +138,7 @@ export default function DepartmentTable_IT(props) {
                   <TableCell>Indu</TableCell>
                   <TableCell>Anoop</TableCell>
                   <TableCell>indu.anoop@vit.edu.in</TableCell>
-                  <TableCell>CMPN</TableCell>
+                  <TableCell>IT</TableCell>
                   <TableCell>
                     <Box sx={{ p: 1, display: 'flex' }}>
                       <FiberManualRecordIcon
