@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment , useRef} from 'react'
 import * as React from "react";
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, CheckCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -19,6 +19,8 @@ import { collection, where,query,onSnapshot,limit, documentId ,updateDoc,doc, de
 import { borderRadius } from '@mui/system';
 import Message from './Message';
 import Status from './Status';
+import { Dialog } from '@headlessui/react'
+import { ExclamationTriangleIcon , CheckIcon} from '@heroicons/react/24/outline'
 const navigation = [
     { name: 'Dashboard', href: '/Dashboard' },   
   ]
@@ -48,7 +50,11 @@ const navigation = [
   
   export default function TeacherInfo(props){
       
-      
+    const [open, setOpen] = useState(false)
+    const [open1, setOpen1] = useState(false)
+
+
+    const cancelButtonRef = useRef(null)
       const navigate = useNavigate();
       
       const storage = getStorage();
@@ -98,10 +104,13 @@ const navigation = [
     
     const handleEdit = async (faculty, message) => {
         await updateDoc(doc(db, "faculty", faculty.id), { message: message });
+        setOpen1(true);
+
       };
      
       const handleEditStatus = async (faculty, status) => {
         await updateDoc(doc(db, "faculty", faculty.id), { status: status });
+        setOpen(true);
       };
     
       const handleDelete = async (id) => {
@@ -121,6 +130,126 @@ const navigation = [
   return(
     
     // <div className="mx-auto max-w-9xl max-h-screen">
+    <> <Transition.Root show={open} as={Fragment}>
+    <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
+      <Transition.Child
+        as={Fragment}
+        enter="ease-out duration-300"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="ease-in duration-200"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+      </Transition.Child>
+
+      <div className="fixed inset-0 z-10 overflow-y-auto">
+        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            enterTo="opacity-100 translate-y-0 sm:scale-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+            leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          >
+            <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+              <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div className="sm:flex sm:items-start">
+                  <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                    <CheckIcon className="h-6 w-6 text-green-600" aria-hidden="true" />
+                  </div>
+                  <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                    <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
+                     Status
+                    </Dialog.Title>
+                    <div className="mt-2">
+                      <p className="text-sm text-gray-500">
+                        Status Updated Successfully!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+               
+                <button
+                  type="button"
+                  className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                  onClick={() => setOpen(false)}
+                  ref={cancelButtonRef}
+                >
+                  X
+                </button>
+              </div>
+            </Dialog.Panel>
+          </Transition.Child>
+        </div>
+      </div>
+    </Dialog>
+  </Transition.Root><Transition.Root show={open1} as={Fragment}>
+    <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
+      <Transition.Child
+        as={Fragment}
+        enter="ease-out duration-300"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="ease-in duration-200"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+      </Transition.Child>
+
+      <div className="fixed inset-0 z-10 overflow-y-auto">
+        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            enterTo="opacity-100 translate-y-0 sm:scale-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+            leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          >
+            <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+              <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div className="sm:flex sm:items-start">
+                  <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                  <CheckIcon className="h-6 w-6 text-green-600" aria-hidden="true" />
+                   
+                  </div>
+                  <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                    <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
+                     Special Message
+                    </Dialog.Title>
+                    <div className="mt-2">
+                      <p className="text-sm text-gray-500">
+                        Special Message Updated Successfully!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+               
+                <button
+                  type="button"
+                  className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                  onClick={() => setOpen1(false)}
+                  ref={cancelButtonRef}
+                >
+                  X
+                </button>
+              </div>
+            </Dialog.Panel>
+          </Transition.Child>
+        </div>
+      </div>
+    </Dialog>
+  </Transition.Root>
         <div className="relative z-10 bg-white pb-8  lg:w-full lg:max-w-full lg:max-h-screen">
           {/* <svg
             className="absolute inset-y-0 right-0 hidden h-full w-48 translate-x-1/2 transform text-white lg:block"
@@ -143,8 +272,8 @@ const navigation = [
                       <img id='myimg'
                         alt="Your Company"
                         className="h-10 w-auto sm:h-10 rounded-full"
-                       
-                      
+                        
+                        
                         />
                      
                     </a>
@@ -168,7 +297,7 @@ const navigation = [
                 </div>
                 <Box className="md:flex -mr-4 -ml-5" sx={{ p: 1  }}>
                 {faculty.map((faculty) => (
-                    <CustomFooterStatusComponent status={faculty.status}/>
+                  <CustomFooterStatusComponent status={faculty.status}/>
                   ))}
                       {/* <FiberManualRecordIcon
                         fontSize="medium"
@@ -177,8 +306,8 @@ const navigation = [
                           color: '#4caf50' ,
                         }}
                         /><Typography className="hidden md:flex">
-
-                      Present
+                        
+                        Present
                       </Typography> */}
                     </Box>
                         <div className="-mr-2 flex items-center md:absolute md:right-0">
@@ -186,7 +315,7 @@ const navigation = [
                            
                             <ArrowBackIcon className="h-6 w-6" aria-hidden="true" 
                               onClick={() => navigate(props.dept)} 
-                             />
+                              />
                               
                              </div>
                       
@@ -198,14 +327,14 @@ const navigation = [
                
                     <div className="todo_container">
                         {faculty.map((faculty) => (
-                        <Message
-                            key={faculty.id}
-                            faculty={faculty}
-                         
-                            handleDelete={handleDelete}
-                            handleEdit={handleEdit}
-                        />
-                        ))}
+                          <Message
+                          key={faculty.id}
+                          faculty={faculty}
+                          
+                          handleDelete={handleDelete}
+                          handleEdit={handleEdit}
+                          />
+                          ))}
                     </div>
                
                 
@@ -215,13 +344,13 @@ const navigation = [
                 Status :
                   <div className='mt-4'>
                         {faculty.map((faculty) => (
-                    <>
+                          <>
                         <Status
                         key={faculty.status}
                         faculty={faculty}
-
+                        
                         handleEdit={handleEditStatus}
-
+                        
                         />
                     </>
                         ))}
@@ -296,6 +425,7 @@ const navigation = [
             </Transition>
           </Popover>
           </div>
+        </>
     )
         
 }

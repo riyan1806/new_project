@@ -1,4 +1,4 @@
-import MainscreenNavbar from "../components/MainscreenNavbar";
+import MainscreenNavbar from "../components/DepartmentNavbar";
 import Title from "../components/DashboardTitle";
 import DepartmentTable from "../components/DepartmentTable";
 export default function Cmpn(){

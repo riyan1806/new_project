@@ -104,7 +104,7 @@ export default function Dashboard(){
                       backgroundPosition: "bottom 1px center",
                       backgroundSize: "300px",
                     }}
-                    onClick={() => navigate("/Dashboard/Cmpn")} // navigate("/StateAdmin/Dashboard/verify")
+                    onClick={() => navigate("/Dashboard/Extc")} // navigate("/StateAdmin/Dashboard/verify")
                     >
                   <Typography
                     variant="caption"
@@ -132,7 +132,7 @@ export default function Dashboard(){
                       backgroundSize: "400px",
                       backgroundPosition: "bottom -20px center",
                     }}
-                    onClick={() => navigate("/Dashboard/Cmpn")} // navigate("/StateAdmin/Dashboard/verify")
+                    onClick={() => navigate("/Dashboard/Etrx")} // navigate("/StateAdmin/Dashboard/verify")
                     >
                   <Typography
                     variant="caption"
@@ -160,7 +160,7 @@ export default function Dashboard(){
                     backgroundSize: "400px ",
                     backgroundPosition: "bottom -20px center",
                 }}
-                onClick={() => navigate("/Dashboard/Cmpn")} // navigate("/StateAdmin/Dashboard/verify")
+                onClick={() => navigate("/Dashboard/Biom")} // navigate("/StateAdmin/Dashboard/verify")
                 >
                   <Typography
                     variant="caption"
