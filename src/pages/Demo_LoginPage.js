@@ -73,7 +73,7 @@ const Login = () => {
       };
 
     });
-  },[])
+  },[data.email])
 
   // const db = getFirestore();
 
