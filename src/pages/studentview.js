@@ -10,7 +10,7 @@ export default function Studentsview() {
       <MainscreenNavbar/>
       <Title name="SELECT - BRANCH"/>
       {/* <div className="flex grid-cols-2 h-screen"></div> */}
-      <Dashboard/>
+      <Dashboard cmpn='/Dashboard/Cmpn' it='/Dashboard/It'extc='/Dashboard/Extc' etrx='/Dashboard/Etrx' biom='/Dashboard/Biom'/>
     </div>
   );
 }

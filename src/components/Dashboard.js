@@ -16,7 +16,7 @@ import BIOM from '../components/Images/departments/BIOM2.png'
 
 
 
-export default function Dashboard(){
+export default function Dashboard(props){
 
     const navigate = useNavigate(); 
 
@@ -50,7 +50,7 @@ export default function Dashboard(){
                       backgroundSize: "260px",
                       backgroundPosition: " bottom 10px center",
                     }}
-                    onClick={() => navigate("/Dashboard/Cmpn")} // navigate("/StateAdmin/Dashboard/verify")
+                    onClick={() => navigate(props.cmpn)} // navigate("/StateAdmin/Dashboard/verify")
                     >
                   <Typography
                     variant="caption"
@@ -77,7 +77,7 @@ export default function Dashboard(){
                       backgroundPosition: "bottom -15px center",
                       backgroundSize: "360px",
                     }}
-                    onClick={() => navigate("/Dashboard/It")} // navigate("/StateAdmin/Dashboard/verify")
+                    onClick={() => navigate(props.it)} // navigate("/StateAdmin/Dashboard/verify")
                     >
                   <Typography
                     variant="caption"
@@ -104,7 +104,7 @@ export default function Dashboard(){
                       backgroundPosition: "bottom 1px center",
                       backgroundSize: "300px",
                     }}
-                    onClick={() => navigate("/Dashboard/Extc")} // navigate("/StateAdmin/Dashboard/verify")
+                    onClick={() => navigate(props.extc)} // navigate("/StateAdmin/Dashboard/verify")
                     >
                   <Typography
                     variant="caption"
@@ -132,7 +132,7 @@ export default function Dashboard(){
                       backgroundSize: "400px",
                       backgroundPosition: "bottom -20px center",
                     }}
-                    onClick={() => navigate("/Dashboard/Etrx")} // navigate("/StateAdmin/Dashboard/verify")
+                    onClick={() => navigate(props.etrx)} // navigate("/StateAdmin/Dashboard/verify")
                     >
                   <Typography
                     variant="caption"
@@ -160,7 +160,7 @@ export default function Dashboard(){
                     backgroundSize: "400px ",
                     backgroundPosition: "bottom -20px center",
                 }}
-                onClick={() => navigate("/Dashboard/Biom")} // navigate("/StateAdmin/Dashboard/verify")
+                onClick={() => navigate(props.biom)} // navigate("/StateAdmin/Dashboard/verify")
                 >
                   <Typography
                     variant="caption"

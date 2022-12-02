@@ -21,14 +21,21 @@ import Teacher71 from "./pages/BIOM/Teacher71";
 import Teacher72 from "./pages/BIOM/Teacher72";
 
 import Faculty from "./pages/Faculty";
-import Faculty_Dashboard from "./pages/FacultyPages/Dashboard";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import Extc from "./pages/EXTC/EXTC";
 import Etrx from "./pages/ETRX/ETRX";
 import Biom from "./pages/BIOM/BIOM";
+import It from "./pages/IT";
+
+import Faculty_Biom from "./pages/FacultyPages/BIOM";
+import Faculty_Extc from "./pages/FacultyPages/EXTC";
+import Faculty_Etrx from "./pages/FacultyPages/ETRX";
+import Faculty_It from "./pages/FacultyPages/IT";
+import Faculty_Cmpn from "./pages/FacultyPages/CMPN";
+import Faculty_Dashboard from "./pages/FacultyPages/Dashboard";
+
 import { AuthProvider } from "./Auth";
 import PrivateRoute from "./PrivateRoute";
-import It from "./pages/IT";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
 
 function App() {
@@ -46,6 +53,13 @@ function App() {
           <Route exact path="/Dashboard/Extc" element={<Extc />} />
           <Route exact path="/Dashboard/Etrx" element={<Etrx />} />
           <Route exact path="/Dashboard/Biom" element={<Biom />} />
+
+          <Route exact path="/Faculty/Dashboard/Cmpn" element={<Faculty_Cmpn />} />
+          <Route exact path="/Faculty/Dashboard/It" element={<Faculty_It />} />
+          <Route exact path="/Faculty/Dashboard/Extc" element={<Faculty_Extc />} />
+          <Route exact path="/Faculty/Dashboard/Etrx" element={<Faculty_Etrx />} />
+          <Route exact path="/Faculty/Dashboard/Biom" element={<Faculty_Biom />} />
+
 
 
 

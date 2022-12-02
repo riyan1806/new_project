@@ -5,7 +5,7 @@ export default function Etrx(){
     return(
         <>
         <MainscreenNavbar/>
-        <Title name="ETRX DEPARTMENT"/>
+        <Title name="ETRX DEPARTMENT" navigate="/Dashboard"/>
         <DepartmentTable_ETRX  id1='6' id2='61'id3='62'/>
         </>
         
