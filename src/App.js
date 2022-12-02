@@ -34,6 +34,16 @@ import Faculty_It from "./pages/FacultyPages/IT";
 import Faculty_Cmpn from "./pages/FacultyPages/CMPN";
 import Faculty_Dashboard from "./pages/FacultyPages/Dashboard";
 
+
+
+import Admin from "./pages/Admin/Admin";
+import Admin_Dashboard from "./pages/Admin/Dashboard";
+import Admin_Biom from "./pages/Admin/BIOM";
+import Admin_Cmpn from "./pages/Admin/CMPN";
+import Admin_Etrx from "./pages/Admin/ETRX";
+import Admin_Extc from "./pages/Admin/EXTC";
+import Admin_It from "./pages/Admin/IT";
+
 import { AuthProvider } from "./Auth";
 import PrivateRoute from "./PrivateRoute";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
@@ -60,6 +70,14 @@ function App() {
           <Route exact path="/Faculty/Dashboard/Etrx" element={<Faculty_Etrx />} />
           <Route exact path="/Faculty/Dashboard/Biom" element={<Faculty_Biom />} />
 
+
+          <Route exact path="/Admin" element={<Admin />} />
+          <Route exact path="/Admin/Dashboard" element={<Admin_Dashboard />} />
+          <Route exact path="/Admin/Dashboard/Cmpn" element={<Admin_Cmpn />} />
+          <Route exact path="/Admin/Dashboard/It" element={<Admin_It />} />
+          <Route exact path="/Admin/Dashboard/Extc" element={<Admin_Extc />} />
+          <Route exact path="/Admin/Dashboard/Etrx" element={<Admin_Etrx/>} />
+          <Route exact path="/Admin/Dashboard/Biom" element={<Admin_Biom />} />
 
 
 

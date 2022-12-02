@@ -6,7 +6,7 @@ export default function Extc(){
         <>
         <MainscreenNavbar/>
         <Title name="EXTC DEPARTMENT" navigate="/Dashboard"/>
-        <DepartmentTable_EXTC  id1='6' id2='61'id3='62'/>
+        <DepartmentTable_EXTC  id1='5' id2='51'id3='52'/>
         </>
         
     )

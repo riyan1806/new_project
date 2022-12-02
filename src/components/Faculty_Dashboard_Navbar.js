@@ -8,12 +8,6 @@ import { getAuth, signOut , } from "firebase/auth";
 import Logo from '../components/Images/icons8-crane-bird-100.png'
 import  Avatar  from '../components/Images/icons8-boy-64.png'
 
-const navigation = [
-  { name: 'Dashboard', to: '/Dashboard', current: true },
-  { name: 'Profile', to: '/Faculty', current: false },
-//   { name: 'Projects', href: '/', current: false },
-//   { name: 'Calendar', href: '/', current: false },
-]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -23,6 +17,12 @@ export default function MainscreenNavbar(props) {
   
   const auth = getAuth();
   // const user = auth.currentUser;
+  const navigation = [
+    { name: 'Dashboard', to: '/Dashboard', current: true },
+    { name: 'Profile', to: props.profile, current: false },
+  //   { name: 'Projects', href: '/', current: false },
+  //   { name: 'Calendar', href: '/', current: false },
+  ]
   // const Photo = user.photoURL
   const navigate = useNavigate();
   const handleLogout = () => {

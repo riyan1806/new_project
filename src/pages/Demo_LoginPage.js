@@ -25,7 +25,7 @@ import { collection, query, onSnapshot, where , limit, getFirestore} from "fireb
 
 
 const navigation = [
-  { name: 'About Us', href: '/' },
+  // { name: 'About Us', href: '/' },
 //   { name: 'Features', href: '/' },
 //   { name: 'Marketplace', href: '/' },
 //   { name: 'Company', href: '/' },
