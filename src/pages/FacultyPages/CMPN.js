@@ -4,7 +4,7 @@ import DepartmentTable from "../../components/DepartmentTable";
 export default function Faculty_Cmpn(){
     return(
         <>
-        <MainscreenNavbar profile='/Faculty' pic='gs://faculty-availability-sys-888c8.appspot.com/pp.jpeg'/>
+        <MainscreenNavbar dashboard='/Faculty/Dashboard' profile='/Faculty' pic='gs://faculty-availability-sys-888c8.appspot.com/pp.jpeg'/>
         <Title name="CMPN DEPARTMENT" navigate="/Faculty/Dashboard"/>
         <DepartmentTable id1='1' id2='2'id3='3'/>
         </>

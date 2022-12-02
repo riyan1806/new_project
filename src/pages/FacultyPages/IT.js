@@ -4,7 +4,7 @@ import DepartmentTable_IT from "../../components/DashboardTable_IT";
 export default function Faculty_It(){
     return(
         <>
-        <MainscreenNavbar profile='/Faculty' pic='gs://faculty-availability-sys-888c8.appspot.com/pp.jpeg'/>
+        <MainscreenNavbar dashboard='/Faculty/Dashboard' profile='/Faculty' pic='gs://faculty-availability-sys-888c8.appspot.com/pp.jpeg'/>
         <Title name="IT DEPARTMENT" navigate="/Faculty/Dashboard"/>
         <DepartmentTable_IT  id1='4' id2='41'id3='42'/>
         </>

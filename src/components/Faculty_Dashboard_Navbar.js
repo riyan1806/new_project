@@ -18,7 +18,7 @@ export default function MainscreenNavbar(props) {
   const auth = getAuth();
   // const user = auth.currentUser;
   const navigation = [
-    { name: 'Dashboard', to: '/Dashboard', current: true },
+    { name: 'Dashboard', to: props.dashboard, current: true },
     { name: 'Profile', to: props.profile, current: false },
   //   { name: 'Projects', href: '/', current: false },
   //   { name: 'Calendar', href: '/', current: false },
